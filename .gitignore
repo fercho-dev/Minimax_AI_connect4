@@ -1,2 +1,5 @@
 /game_original.py
 /setup
+/__pycache__/*
+Dockerfile
+.dockerignore

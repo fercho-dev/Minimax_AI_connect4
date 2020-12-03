@@ -1,5 +1,6 @@
 import copy
 import random
+import pickle
 
 
 class Minimax_AI:
@@ -34,6 +35,7 @@ class Minimax_AI:
             self._opponent = 2
         else:
             self._opponent = 1
+        self._firstmove = self._getfirstmove(self._player)
 
     @property
     def depth(self):
@@ -55,8 +57,27 @@ class Minimax_AI:
     def opponent(self):
         return self._opponent
 
+    def _getfirstmove(self, player):
+        if player == 1:
+            with open('firstmove1', 'rb') as filemove:
+                firstmove = pickle.load(filemove)
+            return firstmove
+        else:
+            with open('firstmove2', 'rb') as filemove:
+                firstmove = pickle.load(filemove)
+            return firstmove
+
     def make_move(self, board):
         """Returns the number of the optimal column to insert a piece by using minimax."""
+        board_str = ''
+        for r in board:
+            for c in r:
+                board_str = board_str + str(c)
+
+        move = self._firstmove.get(board_str, -1)
+        if move != -1:
+            return move
+
         value, col = self._minimax(
             board, 0, True, float('-inf'), float('inf'), 0)
         return col

@@ -55,7 +55,7 @@ class Board:
     def get_next_open_row(self, col):
         """Returns the available row for a new piece."""
         for r in range(self._rows):
-            if self.status[r][col] == 0:
+            if self._status[r][col] == 0:
                 return r
 
     def insert_piece(self, row, col, piece):
