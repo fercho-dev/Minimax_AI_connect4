@@ -1,6 +1,6 @@
 # Minimax_AI_connect4
 
-An artificial intelligence that always beats you at Connect 4. The AI uses the minimax algorithm in the alpha-beta-pruning version.
+An artificial intelligence that always beats you at Connect 4. The AI uses the minimax algorithm in the alpha-beta pruning version.
 
 ### How does it work?
 
